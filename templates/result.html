@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hasil Prediksi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #e0e0e0;
+            text-align: left;
+        }
+        th {
+            background: #f2f6fc;
+            color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Hasil Prediksi Kredit Nasabah</h2>
+        <table>
+            <tbody>
+                {% for key, value in data.items() %}
+                <tr>
+                    <th>{{ key }}</th>
+                    <td>{{ value }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <p>Nasabah diprediksi:
+            <span class="result {% if result == 'TIDAK LAYAK' %}tidak{% endif %}">{{ result }}</span>
+            untuk menerima pinjaman.
+        </p>
+        <a href="/">Kembali ke Formulir</a>
+    </div>
+</body>
+</html>
